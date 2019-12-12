@@ -39,8 +39,7 @@ describe("Post Planets", () => {
                case 201:                    
                     id_temp = res.body.message._id
                     expect(res.body.message.movies).to.be.an('array')
-                    expect(res.body.message.name).to.be.an('string') 
-                    expect(res.body.message).to.equal(objectBody) 
+                    expect(res.body.message.name).to.be.an('string')                    
                break;               
             }
             done();
@@ -93,8 +92,7 @@ describe("Post Planets", () => {
                     expect(res.body.message).to.equal(`you need inform /planet/${id_temp}`);                    
                break;
                case 204:
-                    expect(res.body.message.movies).to.be.an('array')
-                    expect(res.body).to.equal(undefined)
+                    expect(res.body).to.be.empty
                break;               
             }
            

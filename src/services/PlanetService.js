@@ -2,6 +2,7 @@ var swapi = require('axios')
 const config = require('./../../config/config')
 const thirtyminutes = 30 * 60 * 1000
 const oneminute = 60 * 1000
+const thiryseconds = 30 * 1000
 
 module.exports = {     
 
@@ -13,7 +14,7 @@ module.exports = {
      async findMoviesByPlanet(planet) {
           var movies;
           
-          await swapi.get(config.base_sw_url + "planets?search=" + planet, {timeout: 30000})
+          await swapi.get(config.base_sw_url + "planets?search=" + planet, {timeout: thiryseconds})
                .then((response) => {                    
                     if(response.data.results.length > 0)
                          movies = response.data.results[0].films               
@@ -34,7 +35,7 @@ module.exports = {
      async getMovie(url) {
           var movie;
 
-          await swapi.get(url, {timeout: 30000})
+          await swapi.get(url, {timeout: thiryseconds})
                .then(function(response) {
                movie = response.data
                
@@ -82,7 +83,7 @@ module.exports = {
                     planet.updatedAt = new Date()
                     module.exports.save(planet)
                } else 
-                    console.log(`Not necessary update now...wait: ${thirtyminutes} millis`)
+                    console.log(`Not necessary update now...wait: ${planet.updatedAt.getTime() + thirtyminutes} millis`)
           }
      },     
 
@@ -95,7 +96,7 @@ module.exports = {
                if(err)
                     return {status: 500, message: err}
                else
-                    return {status: 201, message: "planete saved: " + plane}                    
+                    return {status: 201, message: plane}                    
           })
      }          
 }
