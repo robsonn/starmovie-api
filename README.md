@@ -28,12 +28,14 @@ Bibliotecas auxiliares:
 -   Listar Planeta por id em query - GET ${url}:${config.port}/api/planet?id=${id}
 -   Listar Planeta por id em params - GET ${url}:${config.port}/api/planet/${id}
 -   Salvar Planeta - POST ${url}:${config.port}/api/planet
+
 - body {
       	"name":  ${name},
 	     "climate": ${climate}
           "terrain": ${terrain}
     }
 -   Atualizar Planeta - PUT $url:${config.port}/api/planet/${id}
+
 - body {
       	"name":  ${name},
 	     "climate": ${climate}
@@ -50,7 +52,6 @@ Os testes foram criados para testar as requisicoes e seus retornos
 Foram utilizados as bibliotecas abaixo:
 -   chai
 -   chai-http
--   axios
 -   mocha
 
 Comando para executar:
