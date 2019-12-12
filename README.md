@@ -1,6 +1,6 @@
 ## Intro
 
-Api que cadastra planetas referentes ao filme star wars e busca os filmes que eles pareceram.
+Api que cadastra planetas referentes ao filme star wars e busca os filmes que eles foram apresentados.
 
 ## Tecnologias
 
